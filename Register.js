@@ -30,9 +30,13 @@ const loginFormValidation = yup.object().shape({
     .string()
     .min(8, ({min}) => `Password must be atleast ${min} characters`)
     .required('Password is required'),
+
+  name: yup
+    .string()
+    .required('Name is required'),
 });
 
-const Login = () => {
+const Register = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -41,7 +45,9 @@ const Login = () => {
 
   const navigate = useNavigation();
 
-  function onSubmit(e) {
+  function onSubmit(values) {
+    console.log(values);
+    // console.log(formik)
     navigate.navigate('profile');
   }
 
@@ -59,8 +65,8 @@ const Login = () => {
           backgroundColor: '#E5E5E5',
         }}>
         <Formik
-          initialValues={{email: '', password: ''}}
-          onSubmit={onSubmit}
+          initialValues={{email: '', name: '', password: ''}}
+          onSubmit={(values) => onSubmit(values)}
           validationSchema={loginFormValidation}>
           {({
             handleChange,
@@ -87,9 +93,29 @@ const Login = () => {
                       paddingLeft: 10,
                       fontSize: 34,
                     }}>
-                    Login
+                    Register
                   </Text>
                 </View>
+                <View style={styles.name}>
+                  <TextInput
+                    style={{
+                      backgroundColor: 'white',
+                      borderRadius: 5,
+                      paddingLeft: 12,
+                      fontWeight: '400',
+                    }}
+                    placeholder="Your name please."
+                    onBlur={handleBlur('name')}
+                    value={values.name}
+                    // keyboardType={'emai'}
+                    onChangeText={handleChange('name')}></TextInput>
+                  {errors.name && (
+                    <Text style={{fontSize: 10, color: 'red'}}>
+                      {errors.name}
+                    </Text>
+                  )}
+                </View>
+
                 <View style={styles.email}>
                   <TextInput
                     style={{
@@ -172,27 +198,30 @@ const Login = () => {
             </>
           )}
         </Formik>
-        <View style ={{
-          position : 'absolute',
-          bottom : 30,
-          left : 0,
-          right : 0
-        }}>
-          <Text style={{
-            textAlign : 'center'
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 30,
+            left: 0,
+            right: 0,
           }}>
-            <Text
+          <Text
             style={{
-              color : '#747980'
-            }}
-            >
-              Don't have an account?{' '}
+              textAlign: 'center',
+            }}>
+            <Text
+              style={{
+                color: '#747980',
+              }}>
+              Already a User?{' '}
             </Text>
             <Link
-            style={{
-              color:'#2805FF'
-            }}
-            to={{screen: 'register'}}>Register Now.</Link>
+              style={{
+                color: '#2805FF',
+              }}
+              to={{screen: 'login'}}>
+              Login.
+            </Link>
           </Text>
         </View>
       </View>
@@ -223,6 +252,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
   },
+  name: {
+    fontWeight: '900',
+    padding: 10,
+  },
   email: {
     // margin: 5,
     fontWeight: '900',
@@ -234,4 +267,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;

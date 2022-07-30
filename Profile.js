@@ -80,6 +80,7 @@ const Profile = () => {
           </Text>
         </View>
 
+        {/* Input fields */}
         <View style={{
           display : 'flex',
           flexDirection : 'column',
@@ -161,6 +162,7 @@ const Profile = () => {
             </Pressable>
           </View>
         </View>
+
       </View>
     </SafeAreaView>
   );

@@ -10,6 +10,7 @@ import React from 'react';
 import type {Node} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Profile from './Profile';
+import Register from './Register';
 
 import {
   StyleSheet,
@@ -70,8 +71,9 @@ const App: () => Node = () => {
         <Stack.Navigator screenOptions={{
     headerShown: false
   }}>
-          <Stack.Screen name="Login" component={Login}></Stack.Screen>
+          <Stack.Screen name="login" component={Login}></Stack.Screen>
           <Stack.Screen name="profile" component={Profile}></Stack.Screen>
+          <Stack.Screen name="register" component={Register}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </>
