@@ -45,6 +45,9 @@ const Login = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      {/* Comment after profile page is complete */}
+    {navigate.navigate('profile')}
+    
       {/* Main Div Start */}
       {/* justifyContent : 'center' */}
       <View style={{height: '100%', paddingTop: 10}}>
