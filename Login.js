@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       {/* Comment after profile page is complete */}
-      {/* {navigate.navigate('profile')} */}
+      {/* {navigate.navigate('home')} */}
 
       {/* Main Div Start */}
       {/* justifyContent : 'center' */}
@@ -192,7 +192,7 @@ const Login = () => {
             style={{
               color:'#2805FF'
             }}
-            to={{screen: 'register'}}>Register Now.</Link>
+            to={{screen: 'home'}}>Register Now.</Link>
           </Text>
         </View>
       </View>

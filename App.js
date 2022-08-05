@@ -11,6 +11,7 @@ import type {Node} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Profile from './Profile';
 import Register from './Register';
+import HomeScreen  from './HomeScreen';
 
 import {
   StyleSheet,
@@ -74,6 +75,7 @@ const App: () => Node = () => {
           <Stack.Screen name="login" component={Login}></Stack.Screen>
           <Stack.Screen name="profile" component={Profile}></Stack.Screen>
           <Stack.Screen name="register" component={Register}></Stack.Screen>
+          <Stack.Screen name="home" component={HomeScreen}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </>
