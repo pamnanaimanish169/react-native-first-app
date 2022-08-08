@@ -9,3 +9,7 @@
 - Integrate these figma screens(https://www.figma.com/file/OAFW4LwPr0ayW4WkFngLI9/Online-Book-Store-(Community)?node-id=21%3A830)
 - Figure out a way to connect those screens to your current app.
 - Make common files for feader & footer
+
+
+Imp links:
+https://stackoverflow.com/questions/29447715/react-native-fixed-footer
