@@ -12,6 +12,8 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Profile from './Profile';
 import Register from './Register';
 import HomeScreen  from './HomeScreen';
+import BookDetails from './BookDetails';
+import ReadBook from './ReadBook';
 
 import {
   StyleSheet,
@@ -76,6 +78,8 @@ const App: () => Node = () => {
           <Stack.Screen name="profile" component={Profile}></Stack.Screen>
           <Stack.Screen name="register" component={Register}></Stack.Screen>
           <Stack.Screen name="home" component={HomeScreen}></Stack.Screen>
+          <Stack.Screen name='bookDetails' component={BookDetails}></Stack.Screen>
+          <Stack.Screen name='readBook' component={ReadBook}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </>

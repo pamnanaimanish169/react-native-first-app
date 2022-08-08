@@ -54,7 +54,6 @@ const Register = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       {/* Comment after profile page is complete */}
-      {/* {navigate.navigate('profile')} */}
 
       {/* Main Div Start */}
       {/* justifyContent : 'center' */}

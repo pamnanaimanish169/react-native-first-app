@@ -47,6 +47,8 @@ const Login = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+            {navigate.navigate('readBook')}
+
       {/* Comment after profile page is complete */}
       {/* {navigate.navigate('home')} */}
 
