@@ -10,6 +10,7 @@ import {
   Dimensions,
   ScrollView,
   FlatList,
+  Pressable,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import React from 'react';
@@ -18,8 +19,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
 import CarouselItem from './CarouselItem';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -27,25 +26,6 @@ const novelRoute = () => <View style={{flex: 1, backgroundColor: '#ff4081'}} />;
 const {width} = Dimensions.get('window');
 
 const data = [
-  // {
-  //   title: 'Coral Reef',
-  //   description: 'Location: Red Sea',
-  //   source:
-  //     'https://images.unsplash.com/photo-1633205719979-e47958ff6d93?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  // },
-  // {
-  //   title: 'Phone',
-  //   description: 'iPhone 6 on the table',
-  //   source:
-  //     'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  // },
-
-  // {
-  //   title: 'Old building',
-  //   description: 'Location: Germany',
-  //   source:
-  //     'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  // },
   {
     title: 'Home Page',
     text: 'Welcome to My Application',
@@ -302,32 +282,6 @@ const Item = ({title}) => (
 
 const renderItem = ({item}) => <Item title={item.title} />;
 const selfLoveRoute = () => (
-  // <View style={{flex: 1, backgroundColor: '#673ab7'}} />
-  // <SafeAreaView
-  //   style={{
-  //     flex: 1,
-  //     paddingTop: 51,
-  //   }}>
-  //   <Carousel
-  //     layout={'default'}
-  //     // ref={ref => this.carousel = ref}
-  //     data={data}
-  //     sliderWidth={301}
-  //     itemWidth={301}
-  //     renderItem={_renderItem}
-  //     onSnapToItem={index =>
-  //       symbolicateStackTrace({activeIndex: index})
-  //     }></Carousel>
-  // </SafeAreaView>
-  // <View
-  // style={{
-  //   flex: 1,
-  // }}
-  // >
-  //   <Carousel
-  //   {...settings}
-  //   ></Carousel>
-  // </View>
   <>
     <ScrollView
       style={{
@@ -336,40 +290,36 @@ const selfLoveRoute = () => (
         height: 900,
       }}
       nestedScrollEnabled={true}>
-        <ScrollView
+      <ScrollView
         style={{
-          height : 300
+          height: 300,
         }}
-        nestedScrollEnabled={true}
-        >
-          <View>
-            <Text>Abcd</Text>
-          </View>
-        </ScrollView>
-
-
-        <ScrollView
-        style={{
-          height : 300
-        }}
-        nestedScrollEnabled={true}
-        >
-          <View>
-            <Text>Abcd</Text>
-          </View>
-        </ScrollView>
-
-        <ScrollView
-        style={{
-          height : 300
-        }}
-        nestedScrollEnabled={true}
-        >
-          <View>
-            <Text>Abcd</Text>
-          </View>
-        </ScrollView>
+        nestedScrollEnabled={true}>
+        <View>
+          <Text>Abcd</Text>
+        </View>
       </ScrollView>
+
+      <ScrollView
+        style={{
+          height: 300,
+        }}
+        nestedScrollEnabled={true}>
+        <View>
+          <Text>Abcd</Text>
+        </View>
+      </ScrollView>
+
+      <ScrollView
+        style={{
+          height: 300,
+        }}
+        nestedScrollEnabled={true}>
+        <View>
+          <Text>Abcd</Text>
+        </View>
+      </ScrollView>
+    </ScrollView>
   </>
 );
 
@@ -447,65 +397,69 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       {/* Main Container Start */}
-      <View>
-        {/* Header */}
-        <View
-          style={{
-            marginTop: 20,
-            paddingLeft: 30,
-            paddingRight: 30,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <View>
-            <Image
-              source={require('./assets/drawreIcon.png')}
-              style={{
-                width: 20,
-                height: 20,
-              }}></Image>
+      <View
+        style={{
+          display: 'flex',
+        }}>
+        <View>
+          {/* Header */}
+          <View
+            style={{
+              // marginTop: 20,
+              paddingLeft: 30,
+              paddingRight: 30,
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <View>
+              <Image
+                source={require('./assets/drawreIcon.png')}
+                style={{
+                  width: 20,
+                  height: 20,
+                }}></Image>
+            </View>
+
+            <View>
+              <Image source={require('./assets/defaultProfile.png')}></Image>
+            </View>
+          </View>
+          {/* Header */}
+
+          <View
+            style={{
+              paddingTop: 20,
+              paddingLeft: 30,
+              paddingRight: 30,
+            }}>
+            <View>
+              <Text
+                style={{
+                  color: '#9D9D9D',
+                  fontSize: 16,
+                  lineHeight: 24,
+                }}>
+                Welcome back, Bunny!
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  color: '#19191B',
+                  fontWeight: '400',
+                  fontSize: 26,
+                  lineHeight: 36,
+                  fontStyle: 'normal',
+                }}>
+                What do you want to do today?
+              </Text>
+            </View>
           </View>
 
-          <View>
-            <Image source={require('./assets/defaultProfile.png')}></Image>
-          </View>
-        </View>
-        {/* Header */}
-
-        <View
-          style={{
-            paddingTop: 20,
-            paddingLeft: 30,
-            paddingRight: 30,
-          }}>
-          <View>
-            <Text
-              style={{
-                color: '#9D9D9D',
-                fontSize: 16,
-                lineHeight: 24,
-              }}>
-              Welcome back, Bunny!
-            </Text>
-          </View>
-          <View>
-            <Text
-              style={{
-                color: '#19191B',
-                fontWeight: '400',
-                fontSize: 26,
-                lineHeight: 36,
-                fontStyle: 'normal',
-              }}>
-              What do you want to do today?
-            </Text>
-          </View>
-        </View>
-
-        {/* https://snack.expo.dev/embedded/@aboutreact/-image-inside-textinput-example?platform=web */}
-        {/* <View 
+          {/* https://snack.expo.dev/embedded/@aboutreact/-image-inside-textinput-example?platform=web */}
+          {/* <View 
                 style={{
                     paddingTop : 34,
                     paddingLeft : 30,
@@ -557,30 +511,71 @@ const HomeScreen = () => {
                     />
                 </View> */}
 
-        {/* Multiple tabs */}
-        {/* https://reactnavigation.org/docs/material-top-tab-navigator/ */}
-        {/* https://github.com/satya164/react-native-tab-view/issues/1087#issuecomment-707961741 */}
+          {/* Multiple tabs */}
+          {/* https://reactnavigation.org/docs/material-top-tab-navigator/ */}
+          {/* https://github.com/satya164/react-native-tab-view/issues/1087#issuecomment-707961741 */}
+          <View
+            style={{
+              height: 560,
+              paddingLeft: 30,
+              paddingRight: 30,
+            }}>
+            <TabView
+              navigationState={{
+                index,
+                routes,
+              }}
+              renderScene={renderScene}
+              onIndexChange={setIndex}
+              renderTabBar={renderTabBar}
+              initialLayout={{
+                width: layout.width,
+              }}></TabView>
+          </View>
+          {/* Multipe tabs */}
+        </View>
+        {/* Main Container Emd */}
+
         <View
           style={{
-            height: '100%',
-            paddingLeft: 30,
-            paddingRight: 30,
+            position: 'absolute',
+            // top : 0,
+            left: 0,
+            bottom: -5,
+            right: 0,
+            backgroundColor: 'white',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
           }}>
-          <TabView
-            navigationState={{
-              index,
-              routes,
-            }}
-            renderScene={renderScene}
-            onIndexChange={setIndex}
-            renderTabBar={renderTabBar}
-            initialLayout={{
-              width: layout.width,
-            }}></TabView>
+          <View>
+            <Image source={require('./assets/homeIcon.png')}></Image>
+          </View>
+
+          <View
+            style={{
+              paddingTop: 17,
+            }}>
+            <Image source={require('./assets/bookIcon.png')}></Image>
+          </View>
+
+          <View
+            style={{
+              paddingTop: 17,
+            }}>
+            <Image source={require('./assets/wishListIcon.png')}></Image>
+          </View>
+
+          <View
+            style={{
+              paddingTop: 17,
+            }}>
+            <Image source={require('./assets/settingsIcon.png')}></Image>
+          </View>
         </View>
-        {/* Multipe tabs */}
       </View>
-      {/* Main Container Emd */}
     </SafeAreaView>
   );
 };
