@@ -19,306 +19,87 @@ import {NavigationContainer} from '@react-navigation/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
 import CarouselItem from './CarouselItem';
+import {imageCarousel} from './imageCarousel';
+import {data} from './CarouselData';
 
 const Tab = createMaterialTopTabNavigator();
 
 const novelRoute = () => <View style={{flex: 1, backgroundColor: '#ff4081'}} />;
 const {width} = Dimensions.get('window');
 
-const data = [
-  {
-    title: 'Home Page',
-    text: 'Welcome to My Application',
-    image:
-      'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  },
-  {
-    title: 'Chats',
-    text: 'All chats will appear here',
-    image:
-      'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  },
-  {
-    title: 'Calls',
-    text: 'All calls will appear here',
-    image:
-      'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  },
-  {
-    title: 'Gallery',
-    text: 'Your Photos',
-    image:
-      'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  },
-  {
-    title: 'Settings',
-    text: 'This a settings window',
-    image:
-      'https://images.unsplash.com/photo-1623345805780-8f01f714e65f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80',
-  },
-];
+const handleImageClick = () => {
+  alert('image clicked');
+};
 
-function imgCarousel({item, index}, parallaxProps) {
+const renderItem = ({item, index}) => {
   return (
-    <Pressable onPress={() => alert(item.description)}>
-      <SafeAreaView
+    <Pressable
+      style={{
+        marginTop: 20,
+      }}
+      onPress={handleImageClick}>
+      <Image
+        source={{
+          uri: item.illustration,
+        }}
         style={{
-          width: '100%',
-          height: width - 200,
-          paddingTop: 20,
-        }}>
-        <ParallaxImage
-          source={{
-            uri: item.source,
-          }}
-          containerStyle={{
-            flex: 1,
-            // borderRadius: 5,
-            marginBottom: Platform.select({ios: 0, android: 1}),
-          }}
-          style={{
-            ...StyleSheet.absoluteFillObject,
-            resizeMode: 'contain',
-          }}
-          {...parallaxProps}></ParallaxImage>
-      </SafeAreaView>
+          height: 200,
+          borderRadius: 20,
+        }}></Image>
     </Pressable>
   );
-}
-
-const settings = {
-  sliderWidth: width,
-  sliderHeight: width,
-  itemWidth: width - 80,
-  data: data,
-  hasParallaxImages: true,
 };
 
-function _renderItem({item, index}) {
-  return (
-    <ScrollView>
-      {/* borderRadius : 6,
-      height : 251,
-      width : '100%',
-      // padding : 51,
-      // marginLeft : 26,
-      marginRight : 26 */}
-
-      <View
-        style={{
-          borderRadius: 6,
-          height: 251,
-          width: '100%',
-          // padding : 51,
-          // marginLeft : 26,
-          marginRight: 26,
-        }}>
-        <Text
-          style={{
-            fontSize: 31,
-          }}>
-          {item.title}
-        </Text>
-
-        <Image
-          source={{
-            uri: item.image,
-          }}
-          style={{
-            width: '100%',
-            height: '100%',
-          }}></Image>
-      </View>
-    </ScrollView>
-  );
-}
-const logo = {
-  uri: 'https://reactnative.dev/img/tiny_logo.png',
-  width: 64,
-  height: 64,
-};
-
-const logo2 = {
-  uri: 'https://i.picsum.photos/id/68/200/200.jpg?hmac=CPg7ZGK1PBwt6DmjjPRApX_t-mOiYxt0pel50VH4Gwk',
-  width: 64,
-  height: 64,
-};
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d71',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d73',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d74',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d75',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d76',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d77',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d78',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d79',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d80',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d81',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d82',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d83',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d84',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d85',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d86',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d87',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d88',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d89',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d90',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d91',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d92',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d93',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d94',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d95',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d96',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d97',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d98',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d99',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29e00',
-    title: 'Third Item',
-  },
-];
-
-const Item = ({title}) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-const renderItem = ({item}) => <Item title={item.title} />;
 const selfLoveRoute = () => (
   <>
-    <ScrollView
-      style={{
-        backgroundColor: 'pink',
-        // marginHorizontal: 20,
-        height: 900,
-      }}
-      nestedScrollEnabled={true}>
-      <ScrollView
-        style={{
-          height: 300,
-        }}
-        nestedScrollEnabled={true}>
-        <View>
-          <Text>Abcd</Text>
-        </View>
-      </ScrollView>
+    <ScrollView>
+      <View>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
 
-      <ScrollView
-        style={{
-          height: 300,
-        }}
-        nestedScrollEnabled={true}>
-        <View>
-          <Text>Abcd</Text>
-        </View>
-      </ScrollView>
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
 
-      <ScrollView
-        style={{
-          height: 300,
-        }}
-        nestedScrollEnabled={true}>
-        <View>
-          <Text>Abcd</Text>
-        </View>
-      </ScrollView>
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
     </ScrollView>
   </>
 );
@@ -405,9 +186,9 @@ const HomeScreen = () => {
           {/* Header */}
           <View
             style={{
-              // marginTop: 20,
-              paddingLeft: 30,
-              paddingRight: 30,
+              paddingLeft: 10,
+              paddingRight: 10,
+              paddingTop: 10,
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -431,8 +212,8 @@ const HomeScreen = () => {
           <View
             style={{
               paddingTop: 20,
-              paddingLeft: 30,
-              paddingRight: 30,
+              paddingLeft: 10,
+              paddingRight: 10,
             }}>
             <View>
               <Text
@@ -459,66 +240,12 @@ const HomeScreen = () => {
           </View>
 
           {/* https://snack.expo.dev/embedded/@aboutreact/-image-inside-textinput-example?platform=web */}
-          {/* <View 
-                style={{
-                    paddingTop : 34,
-                    paddingLeft : 30,
-                    paddingRight : 30,
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#fff',
-                }}
-                >
-                    <TextInput
-                    style={{
-                        borderWidth : 1,
-                        borderColor : '#C4C4C4',
-                        backgroundColor : 'rgba(196, 196, 196, 0.15)',
-                        borderRadius : 10,
-                    }}
-                    placeholder='Search'
-                    ></TextInput>
-                    <Icon style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
-                    <Image 
-                    source={require('./assets/magnifyingglass.png')}
-                    style={{
-                        padding: 10,    
-                    }}
-                    >
-
-                    </Image>
-                    <TextInput
-                        style={
-                            {
-                                // borderWidth : 1,
-                                // borderColor : '#C4C4C4',
-                                // backgroundColor : 'rgba(196, 196, 196, 0.15)',
-                                // borderRadius : 10,
-                                flex: 1,
-                                paddingTop: 10,
-                                paddingRight: 10,
-                                paddingBottom: 10,
-                                paddingLeft: 0,
-                                backgroundColor: '#fff',
-                                color: '#424242',
-                            }
-                        }
-                        placeholder="User Nickname"
-                        // onChangeText={(searchString) => {this.setState({searchString})}}
-                        underlineColorAndroid="transparent"
-                    />
-                </View> */}
-
-          {/* Multiple tabs */}
           {/* https://reactnavigation.org/docs/material-top-tab-navigator/ */}
           {/* https://github.com/satya164/react-native-tab-view/issues/1087#issuecomment-707961741 */}
           <View
             style={{
               height: 560,
-              paddingLeft: 30,
-              paddingRight: 30,
+              marginTop : 20
             }}>
             <TabView
               navigationState={{
@@ -539,7 +266,6 @@ const HomeScreen = () => {
         <View
           style={{
             position: 'absolute',
-            // top : 0,
             left: 0,
             bottom: -5,
             right: 0,
