@@ -10,6 +10,7 @@
 - Figure out a way to connect those screens to your current app.
 - Make common files for feader & footer
 - Make the app dynamic
+- Add Drawer Navigation
 
 
 Imp links:
