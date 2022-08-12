@@ -104,14 +104,218 @@ const selfLoveRoute = () => (
   </>
 );
 
-const scienceRoute = () => <View style={{flex: 1, backgroundColor: '#fff'}} />;
+const scienceRoute = () => (
+  <>
+    <ScrollView>
+      <View>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+    </ScrollView>
+  </>
+);
 const romanceRoute = () => (
-  <View style={{flex: 1, backgroundColor: '#673ab7'}} />
+  <>
+    <ScrollView>
+      <View>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+    </ScrollView>
+  </>
 );
 const childrenRoute = () => (
-  <View style={{flex: 1, backgroundColor: '#ff4081'}} />
+  <>
+    <ScrollView>
+      <View>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+    </ScrollView>
+  </>
 );
-const sampleRoute = () => <View style={{flex: 1, backgroundColor: '#fff'}} />;
+const sampleRoute = () => (
+  <>
+    <ScrollView>
+      <View>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+
+      <View>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            fontSize: 15,
+            lineHeight: 36,
+            color: 'black',
+          }}>
+          Random Category
+        </Text>
+        <Carousel
+          layout="default"
+          data={data}
+          itemWidth={120}
+          itemHeight={150}
+          sliderWidth={500}
+          renderItem={renderItem}></Carousel>
+      </View>
+    </ScrollView>
+  </>
+);
 
 const renderScene = SceneMap({
   novel: novelRoute,
@@ -245,7 +449,7 @@ const HomeScreen = () => {
           <View
             style={{
               height: 560,
-              marginTop : 20
+              marginTop: 20,
             }}>
             <TabView
               navigationState={{
