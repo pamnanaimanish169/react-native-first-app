@@ -21,10 +21,10 @@ import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
 import CarouselItem from './CarouselItem';
 import {imageCarousel} from './imageCarousel';
 import {data} from './CarouselData';
+import {MyDrawer} from './Drawer';
 
 const Tab = createMaterialTopTabNavigator();
 
-const novelRoute = () => <View style={{flex: 1, backgroundColor: '#ff4081'}} />;
 const {width} = Dimensions.get('window');
 
 const handleImageClick = () => {
@@ -47,6 +47,62 @@ const renderItem = ({item, index}) => {
           borderRadius: 20,
         }}></Image>
     </Pressable>
+  );
+};
+
+const novelRoute = () => {
+  return (
+    <>
+      <ScrollView>
+        <View>
+          <Carousel
+            layout="default"
+            data={data}
+            itemWidth={120}
+            itemHeight={150}
+            sliderWidth={500}
+            renderItem={renderItem}></Carousel>
+        </View>
+
+        <View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 15,
+              lineHeight: 36,
+              color: 'black',
+            }}>
+            Random Category
+          </Text>
+          <Carousel
+            layout="default"
+            data={data}
+            itemWidth={120}
+            itemHeight={150}
+            sliderWidth={500}
+            renderItem={renderItem}></Carousel>
+        </View>
+
+        <View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 15,
+              lineHeight: 36,
+              color: 'black',
+            }}>
+            Random Category
+          </Text>
+          <Carousel
+            layout="default"
+            data={data}
+            itemWidth={120}
+            itemHeight={150}
+            sliderWidth={500}
+            renderItem={renderItem}></Carousel>
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -103,7 +159,6 @@ const selfLoveRoute = () => (
     </ScrollView>
   </>
 );
-
 const scienceRoute = () => (
   <>
     <ScrollView>
@@ -263,59 +318,6 @@ const childrenRoute = () => (
     </ScrollView>
   </>
 );
-const sampleRoute = () => (
-  <>
-    <ScrollView>
-      <View>
-        <Carousel
-          layout="default"
-          data={data}
-          itemWidth={120}
-          itemHeight={150}
-          sliderWidth={500}
-          renderItem={renderItem}></Carousel>
-      </View>
-
-      <View>
-        <Text
-          style={{
-            fontWeight: 'bold',
-            fontSize: 15,
-            lineHeight: 36,
-            color: 'black',
-          }}>
-          Random Category
-        </Text>
-        <Carousel
-          layout="default"
-          data={data}
-          itemWidth={120}
-          itemHeight={150}
-          sliderWidth={500}
-          renderItem={renderItem}></Carousel>
-      </View>
-
-      <View>
-        <Text
-          style={{
-            fontWeight: 'bold',
-            fontSize: 15,
-            lineHeight: 36,
-            color: 'black',
-          }}>
-          Random Category
-        </Text>
-        <Carousel
-          layout="default"
-          data={data}
-          itemWidth={120}
-          itemHeight={150}
-          sliderWidth={500}
-          renderItem={renderItem}></Carousel>
-      </View>
-    </ScrollView>
-  </>
-);
 
 const renderScene = SceneMap({
   novel: novelRoute,
@@ -323,7 +325,6 @@ const renderScene = SceneMap({
   science: scienceRoute,
   romance: romanceRoute,
   children: childrenRoute,
-  sample: sampleRoute,
 });
 
 const HomeScreen = () => {
@@ -351,10 +352,6 @@ const HomeScreen = () => {
     {
       key: 'children',
       title: 'Children',
-    },
-    {
-      key: 'sample',
-      title: 'sample',
     },
   ]);
   const isDarkMode = useColorScheme() === 'dark';
