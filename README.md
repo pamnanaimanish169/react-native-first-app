@@ -19,3 +19,6 @@
 
 Imp links:
 https://stackoverflow.com/questions/29447715/react-native-fixed-footer
+
+
+Upload a demo of this app!
